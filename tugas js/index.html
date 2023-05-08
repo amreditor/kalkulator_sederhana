@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kalkulator sederhana</title>
+  </head>
+  <style>
+    .container {
+      position: absolute;
+      border-radius: 12px;
+      padding: 10px;
+      width: 240px;
+      height: 350px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    input {
+      width: calc(100% -20%);
+      padding: 8px 10px;
+      margin-top: 10px;
+      font-size: 15px;
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid #000;
+      border-radius: 12px;
+    }
+    button {
+      padding: 5px 9px;
+      margin-top: 20px;
+      background: gray;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <input
+        type="text"
+        id="bilangan1"
+        placeholder="Masukkan bilangan pertama"
+      />
+      <br />
+      <input type="text" id="bilangan2" placeholder="Masukkan bilangan kedua" />
+      <br />
+      <input type="button" value="+" onclick="tambah()" />
+      <input type="button" value="-" onclick="kurang()" />
+      <input type="button" value="x" onclick="kali()" />
+      <input type="button" value="/" onclick="bagi()" />
+      <br />
+      <input type="text" id="hasil" disabled />
+      <br />
+      <input type="button" value="Reset" onclick="reset()" />
+    </div>
+
+    <script>
+      const bilangan1 = document.getElementById("bilangan1");
+      const bilangan2 = document.getElementById("bilangan2");
+      const hasil = document.getElementById("hasil");
+
+      function tambah() {
+        const hasilTambah =
+          parseFloat(bilangan1.value) + parseFloat(bilangan2.value);
+        hasil.value = hasilTambah;
+      }
+
+      function kurang() {
+        const hasilKurang =
+          parseFloat(bilangan1.value) - parseFloat(bilangan2.value);
+        hasil.value = hasilKurang;
+      }
+
+      function kali() {
+        const hasilKali =
+          parseFloat(bilangan1.value) * parseFloat(bilangan2.value);
+        hasil.value = hasilKali;
+      }
+
+      function bagi() {
+        const hasilBagi =
+          parseFloat(bilangan1.value) / parseFloat(bilangan2.value);
+        hasil.value = hasilBagi;
+      }
+
+      function reset() {
+        bilangan1.value = "";
+        bilangan2.value = "";
+        hasil.value = "";
+      }
+    </script>
+  </body>
+</html>
